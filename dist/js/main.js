@@ -86,6 +86,28 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/@babel/runtime/helpers/classCallCheck.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/classCallCheck.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("function _classCallCheck(instance, Constructor) {\n  if (!(instance instanceof Constructor)) {\n    throw new TypeError(\"Cannot call a class as a function\");\n  }\n}\n\nmodule.exports = _classCallCheck;\n\n//# sourceURL=webpack:///./node_modules/@babel/runtime/helpers/classCallCheck.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/createClass.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/createClass.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("function _defineProperties(target, props) {\n  for (var i = 0; i < props.length; i++) {\n    var descriptor = props[i];\n    descriptor.enumerable = descriptor.enumerable || false;\n    descriptor.configurable = true;\n    if (\"value\" in descriptor) descriptor.writable = true;\n    Object.defineProperty(target, descriptor.key, descriptor);\n  }\n}\n\nfunction _createClass(Constructor, protoProps, staticProps) {\n  if (protoProps) _defineProperties(Constructor.prototype, protoProps);\n  if (staticProps) _defineProperties(Constructor, staticProps);\n  return Constructor;\n}\n\nmodule.exports = _createClass;\n\n//# sourceURL=webpack:///./node_modules/@babel/runtime/helpers/createClass.js?");
+
+/***/ }),
+
 /***/ "./node_modules/chart.js/dist/Chart.js":
 /*!*********************************************!*\
   !*** ./node_modules/chart.js/dist/Chart.js ***!
@@ -1527,6 +1549,18 @@ eval("module.exports = function(module) {\n\tif (!module.webpackPolyfill) {\n\t\
 
 /***/ }),
 
+/***/ "./src/js/carousel.js":
+/*!****************************!*\
+  !*** ./src/js/carousel.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ \"./node_modules/@babel/runtime/helpers/classCallCheck.js\");\n/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ \"./node_modules/@babel/runtime/helpers/createClass.js\");\n/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nvar Carousel =\n/*#__PURE__*/\nfunction () {\n  function Carousel(context, isAutoplay, timeAnimation) {\n    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Carousel);\n\n    this.context = context;\n    this.timeAnimation = timeAnimation;\n    this.countItems = this.context.querySelector('.slider-list').childElementCount;\n    this.widthItem = this.context.querySelector('.slider-list').firstElementChild.offsetWidth;\n    this.totalWidthList = this.widthItem * this.countItems;\n    this.initPos = 0;\n    this.autoplay = isAutoplay || false;\n    this.bindEvents();\n  }\n\n  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Carousel, [{\n    key: \"bindEvents\",\n    value: function bindEvents() {\n      var _this = this;\n\n      var btnLeft = this.context.querySelector('.btn-slider-left');\n      var btnRight = this.context.querySelector('.btn-slider-right');\n      if (btnLeft) btnLeft.addEventListener('click', this.moveLeft.bind(this));\n      if (btnRight) btnRight.addEventListener('click', this.moveRight.bind(this));\n\n      if (this.autoplay) {\n        window.setInterval(function () {\n          _this.moveRight();\n        }, this.timeAnimation);\n      }\n    }\n  }, {\n    key: \"getMinDistance\",\n    value: function getMinDistance() {\n      var widthContainer = this.context.offsetWidth;\n      var aux = widthContainer / this.widthItem;\n      var numElementsVisible = Math.floor(aux > 1 ? aux : 1);\n      return numElementsVisible * this.widthItem;\n    }\n  }, {\n    key: \"moveLeft\",\n    value: function moveLeft(evt) {\n      if (evt) evt.preventDefault();\n      var distMinDisplacement = this.getMinDistance();\n      var newPos = this.initPos + distMinDisplacement;\n      if (this.initPos <= 0 && Math.abs(this.initPos) < this.context.offsetWidth) newPos = 0;\n      this.initPos = newPos;\n      this.move(newPos);\n    }\n  }, {\n    key: \"moveRight\",\n    value: function moveRight(evt) {\n      if (evt) evt.preventDefault();\n      var distMinDisplacement = this.getMinDistance();\n      var newPos = this.initPos - distMinDisplacement;\n      var restWidthList = this.totalWidthList - Math.abs(newPos);\n      if (restWidthList < this.context.offsetWidth) newPos = -(this.totalWidthList - this.context.offsetWidth);\n      if (restWidthList <= 0) newPos = 0;\n      this.initPos = newPos;\n      this.move(newPos);\n    }\n  }, {\n    key: \"move\",\n    value: function move(valX) {\n      var containerList = this.context.querySelector('.slider-list');\n      containerList.style.cssText = 'transform: translate3d(' + valX + 'px, 0px, 0px)';\n    }\n  }]);\n\n  return Carousel;\n}();\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Carousel);\n\n//# sourceURL=webpack:///./src/js/carousel.js?");
+
+/***/ }),
+
 /***/ "./src/js/index.js":
 /*!*************************!*\
   !*** ./src/js/index.js ***!
@@ -1547,7 +1581,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! chart.js */ \"./node_modules/chart.js/dist/Chart.js\");\n/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_0__);\n\nvar marksCanvas = document.getElementById(\"marksChart\");\nvar marksData = {\n  labels: [\"English\", \"Maths\", \"Physics\", \"Chemistry\", \"Biology\", \"History\"],\n  datasets: [{\n    label: \"Student A\",\n    backgroundColor: \"rgba(200,0,0,0.2)\",\n    data: [65, 75, 70, 80, 60, 80]\n  }, {\n    label: \"Student B\",\n    backgroundColor: \"rgba(0,0,200,0.2)\",\n    data: [54, 65, 60, 70, 70, 75]\n  }]\n};\nvar radarChart = new chart_js__WEBPACK_IMPORTED_MODULE_0___default.a(marksCanvas, {\n  type: 'radar',\n  data: marksData\n});\n\n//# sourceURL=webpack:///./src/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! chart.js */ \"./node_modules/chart.js/dist/Chart.js\");\n/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./carousel */ \"./src/js/carousel.js\");\n\n\nvar marksCanvas = document.getElementById(\"marksChart\");\nvar marksData = {\n  labels: [\"English\", \"Maths\", \"Physics\", \"Chemistry\", \"Biology\", \"History\"],\n  datasets: [{\n    label: \"Student A\",\n    backgroundColor: \"rgba(200,0,0,0.2)\",\n    data: [65, 75, 70, 80, 60, 80]\n  }, {\n    label: \"Student B\",\n    backgroundColor: \"rgba(0,0,200,0.2)\",\n    data: [54, 65, 60, 70, 70, 75]\n  }]\n};\nvar radarChart = new chart_js__WEBPACK_IMPORTED_MODULE_0___default.a(marksCanvas, {\n  type: 'radar',\n  data: marksData\n});\nvar containerSliderGallery = document.querySelector('#carousel');\n\nif (containerSliderGallery) {\n  setTimeout(function () {\n    new _carousel__WEBPACK_IMPORTED_MODULE_1__[\"default\"](containerSliderGallery);\n  }, 1000);\n}\n\n//# sourceURL=webpack:///./src/js/main.js?");
 
 /***/ }),
 
