@@ -13,6 +13,9 @@
     <section class="detail-candidate container-fluid row">
       <div class="personal-data col-sm-6 col-md-5 col-lg-4">
         <div class="description">
+          <figure class="image image-background">
+            <img src="./dist/images/fondos-pantalla.jpg" alt="name candidate">
+          </figure>
           <figure class="image image-profile">
             <img src="https://image.shutterstock.com/image-vector/default-avatar-profile-icon-man-260nw-681058294.jpg" alt="name candidate">
           </figure>
@@ -22,11 +25,15 @@
             <h4>Edad: 30</h3>
           </div>
         </div>
-        <div class="paragraph">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Ipsa, recusandae possimus!
-          Corrupti eveniet ad commodi accusantium esse eligendi autem veniam ipsum dicta qui totam vitae laborum illum, 
-          facere similique voluptatem? 
+        <div class="other-details">
+          <label class="title title--sub">estudios y grados</label>
+          <p class="paragraph">Universidad de derecho</p>
+          <label class="title title--sub">antecedentes penales</label>
+          <p class="paragraph">sentencias</p>
+          <label class="title title--sub">deudas y morosidad</label>
+          <p class="paragraph">deudos alimenticio</p>
+          <label class="title title--sub">inmuebles</label>
+          <p class="paragraph">departamentos y casas</p>
         </div>
         <div class="score">
           <label class="paragraph">Likes:</label>
@@ -39,7 +46,7 @@
           </ul>
         </div>
       </div>
-      <div class="biography-related col-sm-5 col-md-7 col-lg-7">
+      <div class="biography-related col-sm-6 col-md-7 col-lg-8">
         <div class="biography">
           <span class="title title--sub">Biografia:</span>
           <p class="paragraph">
@@ -49,16 +56,13 @@
         <div class="related">
           <div class="">
             <label class="title title--sub">Relaciones:</label>
-            <div class="carousel">
-              <a href="#" class="left"><i class="icon-arrow_back_ios"></i></a>
-              <ul>
-                <li><figure class="image-slider"><img src="https://picsum.photos/200/200" alt=""></figure></li>
-                <li><figure class="image-slider"><img src="https://picsum.photos/300/200" alt=""></figure></li>
-                <li><figure class="image-slider"><img src="https://picsum.photos/200/200" alt=""></figure></li>
-                <li><figure class="image-slider"><img src="https://picsum.photos/200/200" alt=""></figure></li>
-                <li><figure class="image-slider"><img src="https://picsum.photos/200/200" alt=""></figure></li>
-              </ul>
-              <a href="#" class="right"><i class="icon-arrow_back_ios"></i></a>
+            <div id="carousel" class="carousel">
+              <figure class="image image-slider">
+                <img src="https://picsum.photos/300/200" alt="">
+              </figure>
+              <figure class="image image-slider">
+                <img src="https://picsum.photos/200/200" alt="">
+              </figure>
             </div>
           </div>
           <div class="candidates-related paragraph row">
@@ -68,11 +72,12 @@
         </div>
       </div>
     </section>
-    <section class="graphics-candidate container-fluid row">
-      <div class="diagram col-sm-6 col-md-5 col-lg-4">
-        <canvas id="marksChart" class="graphic" height="400"></canvas>
+    <section class="graphic container-fluid row">
+      <div class="diagram col-sm-12 col-md-5 col-lg-5">
+        <!-- <canvas id="marksChart" class="graphic-canva" height="400"></canvas> -->
+        <div id="newchar"></div>
       </div>
-      <div class="timeline col-sm-5 col-md-6 col-lg-7">
+      <div class="timeline col-sm-12 col-md-6 col-lg-6">
         <div class="flex-parent">
           <div class="input-flex-container">
             <div class="input">
@@ -99,12 +104,12 @@
             <div class="input">
               <span data-year="1980" data-info="flash memory"></span>
             </div>
-            <div class="input">
+            <!-- <div class="input">
               <span data-year="1990" data-info="World Wide Web"></span>
             </div>
             <div class="input">
               <span data-year="2000" data-info="Google AdWords"></span>
-            </div>
+            </div> -->
           </div>
           <!-- <div class="description-flex-container">
             <p>And future Call of Duty players would thank them.</p>

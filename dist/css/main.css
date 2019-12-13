@@ -355,7 +355,7 @@ td,
 th {
   padding: 0;
 }
-.flex-parent, .carousel:hover a, .carousel ul, .input-flex-container, .tag i, .tag, .box-wrapper {
+.flex-parent, .input-flex-container, .tag i, .tag, .image-background, .box-wrapper {
   display: -webkit-box;
   display: -moz-flex;
   display: flex;
@@ -372,7 +372,7 @@ th {
   padding-right: 2rem;
   padding-left: 2rem;
 }
-.carousel ul, .description, .score,
+.carousel, .description, .score,
 .row {
   box-sizing: border-box;
   display: -webkit-box;
@@ -687,7 +687,7 @@ th {
   -moz-justify-content: flex-start;
   justify-content: flex-start;
 }
-.carousel a, .input-flex-container, .description, .tag i,
+.input-flex-container, .description, .tag i, .image-background,
 .center-xs {
   -webkit-box-pack: center;
   -moz-justify-content: center;
@@ -710,7 +710,7 @@ th {
   -moz-align-items: flex-start;
   align-items: flex-start;
 }
-.flex-parent, .carousel a, .tag i, .tag, .score,
+.flex-parent, .tag i, .tag, .score, .image-background,
 .middle-xs {
   -webkit-box-align: center;
   -moz-align-items: center;
@@ -748,6 +748,7 @@ body, html {
 }
 .box-wrapper {
   margin-top: 20px;
+  padding: 0 20px;
 }
 .box-wrapper .detail-candidate {
   padding: 0;
@@ -789,11 +790,25 @@ body, html {
 }
 .image-profile {
   border-radius: 50%;
-  width: 180px;
-  height: 180px;
+  border: 3px solid white;
+  width: 120px;
+  height: 120px;
 }
 .image-slider {
   margin: 0;
+}
+.image-background {
+  margin: 0;
+  position: absolute;
+  z-index: -1;
+  max-height: 290px;
+  height: 290px;
+  top: 0;
+  right: 0;
+}
+.image-background img {
+  width: auto;
+  height: 100%;
 }
 .score {
   margin: 0;
@@ -922,7 +937,11 @@ body, html {
   text-align: center;
 }
 .graphic {
+  padding: 0;
+}
+.graphic .graphic-canva {
   width: calc(100vw - 30px);
+  margin-top: 10px;
 }
 /* ATOMS */
 .description .main-data {
@@ -957,41 +976,53 @@ body, html {
 }
 .carousel {
   overflow: hidden;
-  width: calc(100vw - 30px);
+  width: 100%;
+  max-width: 100%;
   position: relative;
+  margin: 0;
   margin-top: 15px;
 }
-.carousel ul {
-  width: 10000px;
-  padding: 0;
-  margin: 0;
-  -webkit-transition: all 0.35s ease;
-  transition: all 0.35s ease;
-}
-.carousel ul li {
-  margin-right: 10px;
-}
-.carousel a {
-  display: none;
-  text-decoration: none;
-  position: absolute;
-  top: 0;
-  padding: 0 10px;
-  background: rgba(0, 0, 0, 0.3);
-  height: 99%;
-  color: white;
-  font-size: 24px;
-  z-index: 5;
-}
-.carousel a.right {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-  right: 0;
+.carousel figure {
+  width: 100%;
 }
 /* MOLECULES */
 .personal-data {
-  border-bottom: 1px solid #333333;
   margin-bottom: 10px;
+  padding-bottom: 15px;
+  border-radius: 1em;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  width: 100%;
+}
+.personal-data .score {
+  padding: 0 15px;
+}
+.personal-data .description {
+  position: relative;
+  padding: 15px;
+}
+.personal-data .description .main-data {
+  color: white;
+}
+.personal-data .other-details {
+  padding: 0 15px;
+  margin-top: 15px;
+}
+.personal-data .other-details .title,
+.personal-data .other-details .paragraph {
+  text-transform: uppercase;
+}
+.personal-data .other-details .title {
+  color: white;
+  background: blue;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border-top-left-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+  padding: 2px 8px;
+}
+.personal-data .other-details .paragraph {
+  margin: 10px 0;
 }
 .flex-parent {
   width: 100%;
@@ -2127,12 +2158,29 @@ body, html {
             order: 1;
   }
 }
+@media screen and (min-width: 372px) {
+  .image-profile {
+    margin-left: 0;
+  }
+  .image-background {
+    max-height: 175px;
+    height: 175px;
+  }
+  .image-background img {
+    width: 100%;
+    height: auto;
+  }
+}
 @media screen and (min-width: 768px) {
   .image-profile {
     width: 100px;
     height: 100px;
     margin-left: 0;
     margin-right: 15px;
+  }
+  .image-background {
+    max-height: 160px;
+    height: 160px;
   }
   .input::before, .input::after {
     content: "";
@@ -2159,7 +2207,7 @@ body, html {
     margin: 0;
     background-color: blue;
   }
-  .graphic {
+  .graphic .graphic-canva {
     width: 100%;
   }
   .description .main-data {
@@ -2172,12 +2220,9 @@ body, html {
     flex-wrap: nowrap;
     height: 100px;
   }
-  .carousel {
-    width: 100%;
-  }
-  .personal-data {
-    border: 1px solid #333;
-    padding: 15px;
+  .carousel figure {
+    width: auto;
+    margin-right: 10px;
   }
   .biography-related {
     padding-left: 15px;
